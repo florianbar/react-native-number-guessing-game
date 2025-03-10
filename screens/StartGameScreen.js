@@ -9,9 +9,10 @@ function StartGameScreen() {
     return (
         <View style={styles.screen}>
             <TextInput
-                placeholder="Enter your name"
+                style={styles.numberInput}
                 value={enteredText}
                 onChangeText={setEnteredText}
+                maxLength={2}
             />
             <View style={styles.buttonContainer}>
                 <PrimaryButton style={styles.button}>Reset</PrimaryButton>
@@ -35,6 +36,17 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         // end of iOS shadow
         backgroundColor: "#72063c",
+    },
+    numberInput: {
+        width: 60,
+        height: 55,
+        fontSize: 32,
+        fontWeight: "bold",
+        borderBottomColor: "#ddb52f",
+        borderBottomWidth: 2,
+        marginVertical: 8,
+        color: "#ddb52f",
+        textAlign: "center",
     },
     buttonContainer: {
         flexDirection: 'row',

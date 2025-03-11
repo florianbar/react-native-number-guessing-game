@@ -8,12 +8,16 @@ function StartGameScreen() {
 
     return (
         <View style={styles.screen}>
-            <TextInput
-                style={styles.numberInput}
-                value={enteredText}
-                onChangeText={setEnteredText}
-                maxLength={2}
-            />
+            <View style={styles.inputContainer}>
+                <TextInput
+                    style={styles.input}
+                    value={enteredText}
+                    onChangeText={setEnteredText}
+                    maxLength={2}r
+                    keyboardType="number-pad"
+                    autoCapitalize="none"
+                />
+            </View>
             <View style={styles.buttonContainer}>
                 <PrimaryButton style={styles.button}>Reset</PrimaryButton>
                 <PrimaryButton style={styles.button}>Confirm</PrimaryButton>
@@ -29,22 +33,27 @@ const styles = StyleSheet.create({
         padding: 16,
         borderRadius: 16,
         elevation: 8, // android only
-        // iOS shadow only
+        // iOS only
         shadowColor: "#000",
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 6,
         shadowOpacity: 0.25,
-        // end of iOS shadow
+        // end - iOS only
         backgroundColor: "#72063c",
     },
-    numberInput: {
+    inputContainer: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginVertical: 16,
+    },
+    input: {
         width: 60,
         height: 55,
         fontSize: 32,
         fontWeight: "bold",
         borderBottomColor: "#ddb52f",
         borderBottomWidth: 2,
-        marginVertical: 8,
         color: "#ddb52f",
         textAlign: "center",
     },

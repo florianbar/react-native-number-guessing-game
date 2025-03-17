@@ -18,9 +18,13 @@ function StartGameScreen() {
           autoCapitalize="none"
         />
       </View>
-      <View>
-        <PrimaryButton>Reset</PrimaryButton>
-        <PrimaryButton>Confirm</PrimaryButton>
+      <View style={styles.buttonsContainer}>
+        <View style={styles.buttonContainer}>
+          <PrimaryButton>Reset</PrimaryButton>
+        </View>
+        <View style={styles.buttonContainer}>
+          <PrimaryButton>Confirm</PrimaryButton>
+        </View>
       </View>
     </View>
   );
@@ -39,7 +43,7 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     shadowOpacity: 0.25,
     // end - iOS only
-    backgroundColor: "#4e0329",
+    backgroundColor: "#3b021f",
   },
   inputContainer: {
     flexDirection: "row",
@@ -56,6 +60,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     color: "#ddb52f",
     textAlign: "center",
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  buttonContainer: {
+    flex: 1,
   },
 });
 

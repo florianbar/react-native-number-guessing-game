@@ -13,7 +13,7 @@ function StartGameScreen() {
                     style={styles.input}
                     value={enteredText}
                     onChangeText={setEnteredText}
-                    maxLength={2}r
+                    maxLength={2}
                     keyboardType="number-pad"
                     autoCapitalize="none"
                 />

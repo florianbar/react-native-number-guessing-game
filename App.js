@@ -27,13 +27,20 @@ SplashScreen.setOptions({
 export default function App() {
   const [userNumber, setUserNumber] = useState(null);
   const [gameIsOver, setGameIsOver] = useState(true);
+  const [guessRounds, setGuessRounds] = useState(0);
 
   function pickedNumberHandler(chosenNumber) {
     setUserNumber(chosenNumber);
     setGameIsOver(false);
   }
 
-  function gameOverHandler() {
+  function gameOverHandler(numberOfRounds) {
+    setGuessRounds(numberOfRounds);
+    setGameIsOver(true);
+  }
+
+  function startNewGameHandler() {
+    setUserNumber(null);
     setGameIsOver(true);
   }
 
@@ -45,7 +52,13 @@ export default function App() {
   const screen = useMemo(() => {
     if (userNumber) {
       if (gameIsOver) {
-        return <GameOverScreen />;
+        return (
+          <GameOverScreen
+            userNumber={userNumber}
+            onRestart={startNewGameHandler}
+            roundsCount={guessRounds}
+          />
+        );
       }
 
       return (
